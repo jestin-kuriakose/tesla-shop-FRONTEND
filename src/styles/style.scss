@@ -1,0 +1,564 @@
+@import 'config';
+
+
+:root {
+    font-family: $font-stack;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color: $light-color;
+    background-color: $light-color;
+  }
+
+body {
+    margin: 0;
+    padding: 0;
+}
+  
+  
+  @media (prefers-color-scheme: light) {
+    :root {
+      color: #213547;
+      background-color: #ffffff;
+    }
+    a:hover {
+      color: #747bff;
+    }
+    button {
+      background-color: #f9f9f9;
+    }
+  }
+  
+
+// HEADER
+.header {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+
+  &_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    width: 1400px;
+    padding: 10px 0;
+  }
+
+  .logo {
+    height: 80px;
+    margin: 20px;
+  
+    &_img {
+      height: 100%;
+    }
+  }
+
+  .links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    gap: 20px;
+    color: black;
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .link {
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: 500;
+      padding: 0 10px;
+      &_login{
+        background-color: $primary-color;
+        color: white;
+        padding: 10px;
+      }
+    }
+    .link:hover {
+      color: $primary-color;
+    }
+    .link.selected {
+      color: $primary-color;
+    }
+  }
+}
+
+//FOOTER
+
+.footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  color: white;
+  background-color: $primary-color;
+
+  &_container {
+    padding: 10px;
+  }
+
+  &_contents {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  &_logo {
+    height: 80px;
+    margin: 20px;
+  
+    &_img {
+      height: 100%;
+    }
+  }
+
+  &_links {
+    margin: 0;
+
+    a{
+      text-decoration: none;
+    }
+  }
+  &_link {
+    list-style: none;
+    color: white;
+    margin: 10px;
+    cursor: pointer;
+
+    &:hover {
+      color: black;
+    }
+  }
+
+  &_form {
+    display: flex;
+    flex-direction: column;
+
+    input {
+      padding: 5px;
+    }
+    textarea {
+      padding: 5px;
+    }
+    button{
+      cursor: pointer;
+      margin: 0;
+
+    }
+  }
+
+}
+
+
+// LOGIN PAGE
+
+.login-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 80vh;
+  width: 300px;
+
+  h1 {
+    color: black;
+    font-size: 50px;
+  }
+  input {
+    padding: 10px 0;
+    margin-bottom: 20px;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  a {
+    text-decoration: none;
+    color: $secondary-color
+  }
+}
+
+//HOME PAGE
+//HERO SECTION
+.hero {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  background: url('../assets/bg2.jpg');
+  background-size: cover;
+
+  &_container {
+    height: 80vh;
+    width: 1400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+  }
+
+  .left {
+    flex: 1;
+    &_title {
+      color: darken($color: white, $amount: 10%);
+      font-size: 55px;
+    }
+    &_button {
+      background-color: $primary-color;
+      color: white;
+      padding: 12px;
+      font-size: 18px;
+      cursor: pointer;
+      &:hover {
+        color: $primary-color;
+        background-color: white;
+      }
+    }
+  }
+  .right {
+    flex: 1;
+  }
+}
+
+//ABOUT SECTION
+.about {
+  display: flex;
+  margin: 0;
+  color: black;
+
+  &_container {
+    margin: 0px 200px;
+    padding: 50px 0px;
+    display: flex;
+    align-items: center;
+  }
+
+  .left {
+    flex: 1;
+
+    &_image {
+      // height: 80px;
+      // width: 20px;
+
+      img {
+
+      }
+    }
+  }
+  .right{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+    h3 {
+      font-size: 36px;
+      margin: 0;
+    }
+    button {
+      width: 150px;
+    }
+  }
+}
+
+//Featured Section
+.featured {
+  background-color: $primary-color;
+  margin: 0;
+
+  &_container {
+    margin: 0px 200px;
+    padding: 50px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h3 {
+      font-size: 36px;
+    }
+  }
+
+  &_phones {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+
+    a{
+      text-decoration: none;
+      color: white;
+    }
+
+    .product {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 350px;
+
+      &_image {
+        width: 250px;
+        height: 350px;
+        object-fit: contain;
+      }
+      &_title {
+        font-weight: 300;
+        font-size: 24px;
+        margin: 0;
+      }
+      &_price {
+        margin: 0;
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+//Newsletter Section
+.newsletter {
+  color: black;
+
+  &_container {
+    margin: 0 200px;
+    padding: 50px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h3 {
+      margin: 0;
+      font-size: 36px;
+    }
+    input {
+      padding: 10px;
+      width: 300px;
+    }
+    button {
+      width: 100px;
+    }
+  }
+}
+
+
+//SHOP PAGE
+.shop {
+  color: black;
+  display: flex;
+  padding: 50px;
+
+  .filter {
+    flex: 1;
+
+    .search{
+      padding: 10px;
+      width: 200px;
+      border: 1px solid black;
+    }
+
+    h1{
+      font-size: 30px;
+      color: $primary-color;
+      font-weight: 300;
+
+    }
+
+    .cats {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .cat {
+        font-size: 20px;
+        font-weight: 300;
+        cursor: pointer;
+        padding: 5px;
+      }
+      .cat:hover {
+        color: $primary-color;
+      }
+    }
+  }
+
+  .content {
+    flex: 4;
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      .product {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 350px;
+
+        a{
+          text-decoration: none;
+          color: black;
+        }
+
+        &_image {
+          width: 250px;
+          height: 350px;
+          object-fit: contain;
+        }
+        &_title {
+          font-weight: 300;
+          font-size: 24px;
+          margin: 0;
+        }
+        &_price {
+          margin: 0;
+          font-size: 18px;
+        }
+        &_cart {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 5px;
+          &_qty{
+            flex: 1;
+            width: 30px;
+            height: 30px;
+            font-size: medium;
+
+          }
+          &_btn {
+            flex: 4;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+//PRODUCT PAGE
+.single-product {
+  margin: 0;
+
+  &_container {
+    margin: 50px 200px;
+    display: flex;
+    color: black;
+  }
+
+  &_image {
+    flex: 1;
+  }
+
+  &_content {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+
+    &_title {
+      flex: 1;
+      font-size: 36px;
+      margin: 0;
+    }
+    &_desc {
+      flex: 8;
+      padding-right: 100px;
+    }
+    &_price {
+      font-size: 36px;
+    }
+    &_cart {
+      flex: 1;
+      display: flex;
+      gap: 5px;
+
+      .btn-small {
+
+      }
+      .quantity {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        border: 0.5px solid black;
+      }
+      
+      .cart-btn {
+        width: 200px;
+        height: 40px;
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+}
+
+//Contact Page
+//Contact Section
+.contact {
+  margin: 0;
+  color: black;
+
+  &_container {
+    // margin: 0px 200px;
+    padding: 50px 0px;
+    display: flex;
+    // flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &_title {
+    font-size: 48px;
+    text-align: center;
+  }
+
+  &_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 10px;
+    
+    h3 {
+      font-size: 24px;
+      font-weight: 300;
+    }
+
+    input {
+      padding: 10px;
+      width: 400px;
+      font-size: 14px;
+    }
+    textarea{
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    button {
+      margin: 0;
+      cursor: pointer;
+    }
+  }
+
+  // .vertical-line {
+  //   height: 450px;
+  //   width: 3px;
+  //   background-color: $primary-color;
+  //   margin: 0 50px;
+  // }
+
+  .map {
+    margin: 0 auto;
+  }
+}
+
+
+
+
+
+
+
+
+@import 'utilities';
+@import 'buttons';
+@import 'mobile';
