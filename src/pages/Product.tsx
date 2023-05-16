@@ -4,24 +4,40 @@ import Header from '../components/Header'
 import iPhone from '../assets/iphone.jpg'
 import { useLocation } from 'react-router-dom'
 import {phones} from '../data.js'
+import axios from 'axios'
 
+const conditionDescription = 
+    <div>
+        <p><strong>Like New:</strong> These devices look like and function like a new phone with no scratches or blemishes!</p>
+        <p><strong>Great:</strong> These devices will be free of visible dents, chips and scratches!</p>
+        <p><strong>Very Good:</strong> These devices may have light scuffs or subtle scratches. They are available at fantastic value!</p>
+        <p><strong>Good:</strong> These devices typically have visible scuffs, hairline scratches, or other minor imperfections.</p>
+    </div>
 
 interface Phone {
     id: number,
     title: string,
+    desc?: string,
     cat: Array<string>,
-    price: number
+    price: number,
+    color: Array<string>,
+    storage: Array<string>,
+    condition: Array<string>,
+    image?: string,
+    variation: Array<string>
 }
 
 const Product:FC = ():ReactElement => {
     const location = useLocation()
     const id = location.pathname.split('/')[2]
-    const [phoneData, setPhoneData] = useState<Phone[]>([])
+    const [phoneData, setPhoneData] = useState<Phone | undefined>()
 
     useEffect(() => {
-        const fetchPhoneData = () => {
+        const fetchPhoneData = async() => {
             try {
-                setPhoneData(phones)
+                const response = await axios.get(`http://localhost:3001/api/v1/products/${id}`)
+                setPhoneData(response.data)
+                console.log(response.data)
             } catch(err) {
                 console.log(err)
             }
@@ -32,18 +48,34 @@ const Product:FC = ():ReactElement => {
   return (
     <>
         <Header/>
-
-        {phoneData.map((phone)=> (
-            phone?.id == Number(id) &&
             <div className="single-product">
                 <div className="single-product_container">
                     <div className="single-product_image">
                         <img src={iPhone} alt="" />
                     </div>
                     <div className="single-product_content">
-                        <h3 className='single-product_content_title'>{phone.title}</h3>
-                        <p className='single-product_content_desc'>The iPhone 8 and iPhone 8 Plus[a] are smartphones designed, developed, and marketed by Apple Inc. They are the eleventh generation of the iPhone. The iPhone 8 was released on September 22, 2017, succeeding the iPhone 7 and iPhone 7 Plus respectively[8] and preceding the iPhone XR. The iPhone 8 and iPhone 8 Plus were discontinued by Apple on April 15, 2020 with the release of the second-generation iPhone SE.</p>
-                        <h3 className='single-product_content_price'>$ {phone.price}</h3>
+                        <h3 className='single-product_content_title'>{phoneData?.title}</h3>
+                        <p className='single-product_content_desc'>{conditionDescription}</p>
+
+                        <div className="single-product_content_storage">
+                            <label htmlFor="">Storage: </label>
+                            {phoneData?.storage.map((s) => (
+                                <button className="single-product_content_storage_btn">{s}</button>
+                            ))}
+                        </div>
+                        <div className="single-product_content_color">
+                            <label htmlFor="">Color: </label>
+                            {phoneData?.color.map((s) => (
+                                <button className="single-product_content_color_btn">{s}</button>
+                            ))}
+                        </div>
+                        <div className="single-product_content_condition">
+                            <label htmlFor="">Condition: </label>
+                            {phoneData?.condition.map((s) => (
+                                <button className="single-product_content_condition_btn">{s}</button>
+                            ))}
+                        </div>
+                        <h3 className='single-product_content_price'>$ {phoneData?.price}</h3>
                         <div className="single-product_content_cart">
                             <button className='btn-sm'>-</button>
                             <input defaultValue={0} className='quantity' type="number" />
@@ -52,8 +84,10 @@ const Product:FC = ():ReactElement => {
                         </div>
                     </div>
                 </div>
+                <div className="single-product_description">
+
+                </div>
             </div>
-        ))}
         <Footer/>
     </>
   )

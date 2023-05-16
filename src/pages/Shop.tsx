@@ -1,12 +1,40 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { Link, Outlet } from 'react-router-dom'
 import ProductList from '../components/ProductList'
+import axios from 'axios'
+
+interface Phone {
+    _id: number,
+    title: string,
+    desc?: string,
+    cat: Array<string>,
+    price: number,
+    color: Array<string>,
+    storage: Array<string>,
+    condition: Array<string>,
+    image?: string,
+    variation: Array<string>
+}
 
 const Shop = () => {
+    const [phones, setPhones] = useState<Phone[]>([])
     const [selectedCat, setSelectedCat] = useState<string>("all")
     const [selectedRange, setSelectedRange] = useState<string>("600")
+
+    useEffect(() => {
+        const fetchPhones = async() => {
+            try {
+                const response = await axios.get('http://localhost:3001/api/v1/products')
+                setPhones(response.data)
+            } catch(err) {
+                console.log(err)
+            }
+        }
+        fetchPhones()
+    },[])
+
   return (
     <div>
         <Header/>
@@ -26,7 +54,7 @@ const Shop = () => {
                     <span className="price">${selectedRange}</span>
                 </div>
             </div>
-            <ProductList selectedCat={selectedCat} selectedRange={selectedRange} />
+            <ProductList phones={phones} selectedCat={selectedCat} selectedRange={selectedRange} />
         </div>
         <Footer/>
     </div>
