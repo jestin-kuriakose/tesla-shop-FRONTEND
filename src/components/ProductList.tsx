@@ -30,12 +30,18 @@ interface Cart {
     quantity: number
 }
 
-const ProductList:FC<Props> = ({phones, selectedCat, selectedRange}) => {
+const ProductList:FC<any>  = ({phones, selectedCat, selectedRange}) => {
+
     const { cart, setCart }:any = useContext(CartContext)
-    const [quantity, setQuantity] = useState<Number>(0)
+    const [quantity, setQuantity] = useState<number>(0)
 
     const handleAddToCart = (phone) => {
-        const duplicate = cart.find(p=>p.id == phone._id)
+        const duplicate = cart?.find(p=>p.id == phone._id)
+
+        if(quantity < 1) {
+            alert("Quantity must be greater than 0")
+            return;
+        }
 
         setCart((prev) => {
             if(duplicate) {
@@ -55,21 +61,9 @@ const ProductList:FC<Props> = ({phones, selectedCat, selectedRange}) => {
                     quantity
                 }]
             }
-
             
         })
-
-console.log(cart)
-
-        //     console.log(newData)
-        // setCart(newData)
-        // setCart((prev) => ([...prev, {
-        //     id: phone._id,
-        //     title: phone.title,
-        //     price: phone.price,
-        //     quantity
-        // }]))
-        // console.log(cart)
+        setQuantity(0)
     }
 
   return (
@@ -103,6 +97,6 @@ console.log(cart)
             </div>
     </>
   )
-}
 
+}
 export default ProductList

@@ -10,6 +10,9 @@ import Contact from "./pages/Contact";
 import Product from "./pages/Product";
 import ProductList from "./components/ProductList";
 import React from "react";
+import CartPage from "./pages/CartPage";
+import Payment from "./pages/Payment";
+import Completion from "./pages/Completion";
 
 const App: React.FC = () => {
 
@@ -31,8 +34,20 @@ const App: React.FC = () => {
       element: <Login/>
     },
     {
+      path: '/cart',
+      element: <CartPage/>
+    },
+    {
       path: "/contact",
       element: <Contact/>
+    },
+    {
+      path: "/payment",
+      element: <Payment/>
+    },
+    {
+      path: "/completion",
+      element: <Completion/>
     },
 
   ]);
