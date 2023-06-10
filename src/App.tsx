@@ -13,6 +13,7 @@ import React from "react";
 import CartPage from "./pages/CartPage";
 import Payment from "./pages/Payment";
 import Completion from "./pages/Completion";
+import Repair from "./pages/Repair/Repair";
 
 const App: React.FC = () => {
 
@@ -20,6 +21,10 @@ const App: React.FC = () => {
     {
       path: "/",
       element: <Home/>,
+    },
+    {
+      path: "/repair",
+      element: <Repair/>
     },
     {
       path: "/products",

@@ -17,6 +17,6 @@
     "jsx": "react-jsx",
     "typeRoots" : ["node_modules/@types", "src/types"]
   },
-  "include": ["frontend/src"],
+  "include": ["frontend/src/types/images.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
