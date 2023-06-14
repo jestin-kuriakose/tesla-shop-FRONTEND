@@ -7,7 +7,13 @@
 }
 
 .ts-header {
-    padding: 20px 50px;
+    padding: 5px 50px;
+    @media (max-width: 640px) {
+        padding: 10px 20px;
+    }
+    @media (max-width: 475px) {
+        padding: 5px 0px;
+    }
 
     &__container {
         display: flex;
@@ -28,6 +34,49 @@
             object-fit: cover;
         }
     }
+    &__hamburger-menu {
+        display: none;
+        cursor: pointer;
+
+        @media (max-width: $md) {
+            display: block;
+            position: relative;
+            width: 51px;
+            height: 51px;
+            transition: transform 0.3s ease-in-out;
+            // border: 1px solid red;
+
+            span {
+                display: block;
+                position: absolute;
+                width: 51px;
+                height: 2px;
+                background-color: $black;
+                transition: transform 0.3s ease-in-out;
+            }
+            .line1{
+                top: 25%;
+                left: 0;
+            }
+            .line2 {
+                top: 50%;
+                left: 0;
+            }
+            .line3 {
+                top: 75%;
+                left: 0;
+            }
+            &.open .line1 {
+                transform: rotate(45deg) translate(8px, 8px);
+            }
+            &.open .line2 {
+                opacity: 0;
+            }
+            &.open .line3 {
+                transform: rotate(-45deg) translate(10px, -10px);
+            }
+        }
+    }
     &__nav {
         display: flex;
         font-weight: 400;
@@ -35,11 +84,25 @@
         align-items: center;
         text-align: center;
         color: #040404;
+        transition: transform 0.3 ease-in-out;
         @media screen and (max-width: $xl) {
             // flex-wrap: wrap;
         }
         @media screen and (max-width: $md) {
             display: none;
+            &.open {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                position: absolute;
+                top: 10%;
+                right: 8%;
+                background-color: white;
+                height: 75vh;
+                max-width: 450px;
+                z-index: 100;
+                margin: 0;
+            }
         }
 
         &__pages {
@@ -47,10 +110,18 @@
             list-style: none;
             justify-content: space-between;
             align-items: center;
+            @media screen and (max-width: $md) {
+                flex-direction: column;
+                padding: 20px 40px;
+            }
         }
         &__page {
             margin: 0 1.5rem;
             font-size: 16px;
+            @media screen and (max-width: $md) {
+                padding: 20px;
+                font-size: 24px;
+            }
             @media screen and (max-width: $xl) {
                 margin: 0 1rem;
             }
@@ -58,6 +129,10 @@
         &__login {
             margin: 0 1.5rem;
             font-size: 18px;
+            @media (max-width: $md) {
+                padding: 20px;
+                font-size: 24px;
+            }
         }
         &__register {
             margin: 0px 1.5rem;
@@ -69,6 +144,10 @@
             border-radius: 5px;
             font-weight: 500;
             box-shadow: 0px 10px 50px rgba(75, 74, 239, 0.5);
+            @media (max-width: $md) {
+                padding: 20px;
+                font-size: 24px;
+            }
             @media screen and (max-width: $lg) {
                 margin: 0;
                 padding: 1rem;
@@ -79,10 +158,12 @@
             list-style: none;
             align-items: center;
             @media screen and (max-width: $xl) {
-                display: none;
+                // display: none;
+
             }
             @media screen and (max-width: $md) {
-                padding: 0;
+                flex-direction: column;
+                padding: 0px;
             }
         }
     }
@@ -90,6 +171,9 @@
 
 .ts-hero {
     padding: 0px 50px;
+    @media (max-width: 475px) {
+        padding: 0px;
+    }
 
     &__container {
         display: flex;
@@ -98,14 +182,15 @@
         gap: 30px;
         position: relative;
         @media screen and (max-width: $xl) {
-            // margin: 0 1.5rem;
-            // padding: 0.5rem 1.5rem;
             flex-direction: column;
         }
     }
 
     &__left {
         flex: 1;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
 
         &__heading {
             font-size: 3.5rem;
@@ -119,6 +204,11 @@
             }
             @media screen and (max-width: $xl) {
                 text-align: center;
+                padding-right: 0px;
+            }
+            @media (max-width: 475px) {
+                font-size: 2rem;
+                line-height: 40px;
             }
         }
         &__paragraph {
@@ -131,6 +221,10 @@
             }
             @media screen and (max-width: $xl) {
                 text-align: center;
+            }
+            @media (max-width: 475px) {
+                font-size: 16px;
+                line-height: 18px;
             }
         }
         &__searchbox {
@@ -180,6 +274,9 @@
             @media screen and (max-width: 768px) {
                 max-width: 572px;
             }
+            @media (max-width: 475px) {
+                max-width: 375px;
+            }
             
             & img {
                 width: 100%;
@@ -204,9 +301,13 @@
                     width: 450px;
                     height: 450px;
                 }
-                @media (max-width: $sm) {
-                    width: 300px;
-                    height: 300px;
+                @media (max-width: 575px) {
+                    width: 400px;
+                    height: 400px;
+                }
+                @media (max-width: 475px) {
+                    width: 375px;
+                    height: 375px;
                 }
             }
             &__orderCount {
@@ -226,6 +327,10 @@
                 @media (max-width: 1400px) {
                     font-size: 16px;
                 }
+                @media (max-width: 522px) {
+                    font-size: 14px;
+                    bottom: 180px;
+                }
             }
             &__customerCount {
                 position: absolute;
@@ -244,7 +349,10 @@
                 height: 100px;
 
                 @media screen and (max-width: 1400px) {
-                    left: 40%;
+                    width: 360px;
+                    height: 80px;
+                    top: 35%;
+                    left: 47%;
                 }
     
                 &__container {
@@ -323,19 +431,24 @@
         align-items: center;
         justify-content: center;
 
+
         &__container {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 80px;
+            justify-content: space-around;
             width: 100%;
             padding: 30px 100px;
+            flex-wrap: wrap;
             @media (max-width: 1440px) {
                 padding: 0;
             }
             @media (max-width: $xl) {
                 padding: 0 30px;
             }
+            @media (max-width: 475px) {
+                // gap: 20px;
+            }
+
         }
 
         &__section1, &__section2, &__section3 {
@@ -344,6 +457,14 @@
             font-weight: 400;
             font-size: 24px;
             line-height: 36px;
+            @media (max-width: 1024px) {
+                font-size: 20px;
+                line-height: 28px;
+            }
+            @media (max-width: 768px) {
+                font-size: 16px;
+                line-height: 28px;
+            }
         }
 
         &__section1 {
@@ -364,6 +485,13 @@
 .ts-device-select {
     background-color: #EEF1F6;
     padding: 120px 50px;
+    @media (max-width: 640px) {
+        padding: 60px 20px;
+    }
+    padding: 120px 50px;
+    @media (max-width: 475px) {
+        padding: 60px 0px;
+    }
 
     &__container {
         display: flex;
@@ -421,6 +549,13 @@
 
 .ts-repair-contact {
     padding: 120px 50px;
+    @media (max-width: 640px) {
+        padding: 60px 20px;
+    }
+    padding: 120px 50px;
+    @media (max-width: 475px) {
+        padding: 60px 0px;
+    }
     &__container {
         display: flex;
         align-items: center;
@@ -487,12 +622,22 @@
 
 .ts-choose-us {
     padding: 120px 50px;
+    @media (max-width: 640px) {
+        padding: 60px 20px;
+    }
+    padding: 120px 50px;
+    @media (max-width: 475px) {
+        padding: 60px 0px;
+    }
     &__container {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
         gap: 30px;
+        @media (max-width: 1024px) {
+            text-align: center;
+        }
     }
     &__title {
         font-weight: 600;
