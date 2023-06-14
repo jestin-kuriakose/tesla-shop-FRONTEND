@@ -18,7 +18,7 @@ const Hero = () => {
         <div className="hero_container">
             <div className="left">
                 <h2 className='left_title'>Giving Life to Used Smartphones</h2>
-                <Link to={'/shop'}><button className='left_button'>Shop now</button></Link>
+                <Link to={'/repair'}><button className='left_button'>Shop now</button></Link>
             </div>
             <div className="right">
                 <img className='right_img' src={''} alt="" />
