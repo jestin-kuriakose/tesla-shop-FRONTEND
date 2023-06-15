@@ -1,0 +1,160 @@
+@import "../../styles/style.scss";
+
+.ts-header {
+    padding: 5px 50px;
+    @media (max-width: 640px) {
+        padding: 10px 20px;
+    }
+    @media (max-width: 475px) {
+        padding: 5px 0px;
+    }
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @media screen and (max-width: $xl) {
+            // margin: 0 1.5rem;
+            // padding: 0.5rem 1.5rem;
+            
+        }
+    }
+    &__logo{
+        width: 160px;
+
+        &__img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+    }
+    &__hamburger-menu {
+        display: none;
+        cursor: pointer;
+
+        @media (max-width: $md) {
+            display: block;
+            position: relative;
+            width: 51px;
+            height: 51px;
+            transition: transform 0.3s ease-in-out;
+            // border: 1px solid red;
+
+            span {
+                display: block;
+                position: absolute;
+                width: 51px;
+                height: 2px;
+                background-color: $black;
+                transition: transform 0.3s ease-in-out;
+            }
+            .line1{
+                top: 25%;
+                left: 0;
+            }
+            .line2 {
+                top: 50%;
+                left: 0;
+            }
+            .line3 {
+                top: 75%;
+                left: 0;
+            }
+            &.open .line1 {
+                transform: rotate(45deg) translate(8px, 8px);
+            }
+            &.open .line2 {
+                opacity: 0;
+            }
+            &.open .line3 {
+                transform: rotate(-45deg) translate(10px, -10px);
+            }
+        }
+    }
+    &__nav {
+        display: flex;
+        font-weight: 400;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        color: #040404;
+        @media screen and (max-width: $xl) {
+            // flex-wrap: wrap;
+        }
+        @media screen and (max-width: $md) {
+            display: block;
+            position: absolute;
+            transition: all 0.3s ease-in;
+            top: -100%;
+            right: 0;
+            height: 100vh;
+            width: 100%;
+            background-color: #f4f4f4;
+            z-index: 100;
+            &.open {
+                display: block;
+                position: absolute;
+                background-color: #f4f4f4;
+                height: 100vh;
+                width: 100%;
+                transition: all 0.3s ease-in;
+                top: 10%;
+                right: 0;
+                overflow-y: hidden;
+                z-index: 100;
+            }
+        }
+
+        &__pages {
+            display: flex;
+            list-style: none;
+            justify-content: space-between;
+            align-items: center;
+            @media screen and (max-width: $md) {
+                flex-direction: column;
+                padding: 20px 40px;
+            }
+        }
+        &__page {
+            margin: 0 1.5rem;
+            font-size: 16px;
+            @media screen and (max-width: $md) {
+                padding: 20px;
+                font-size: 24px;
+            }
+            @media screen and (max-width: $xl) {
+                margin: 0 1rem;
+            }
+        }
+        &__login {
+            margin: 0 1.5rem;
+            font-size: 18px;
+            @media (max-width: $md) {
+                padding: 20px;
+                font-size: 24px;
+            }
+        }
+        &__register {
+            margin: 0px 0.5rem;
+            max-width: 140px;
+            padding: 1.5rem;
+            @media (max-width: $md) {
+                padding: 20px;
+                font-size: 24px;
+            }
+            @media screen and (max-width: $lg) {
+                margin: 0;
+                padding: 1rem;
+            }
+        }
+        &__auth {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            @media screen and (max-width: $md) {
+                flex-direction: column;
+                padding: 0px;
+            }
+        }
+    }
+}

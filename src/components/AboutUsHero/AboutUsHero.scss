@@ -1,0 +1,62 @@
+@import '../../styles/style.scss';
+
+.aboutus {
+    padding: 120px 50px;
+    background-color: #eef1f6;
+
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+        @media (max-width: 1024px) {
+            flex-direction: column;
+            gap: 0px;
+        }
+    }
+    &__left {
+        flex: 1;
+
+
+        &__img {
+            max-width: 350px;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            padding: 20px 0px;
+            & img {
+                width: 100%;
+                margin: 0 auto;
+                object-fit: cover;
+                z-index: 2;
+                position: relative;
+            }
+            &__bg {
+                position: absolute;
+                top: -50px;
+                left: -30px;
+                width: 350px;
+                height: 100%;
+                background-color: $p-color;
+                z-index: 1;
+            }
+        }
+
+    }
+    &__right {
+        flex: 1;
+        padding: 50px 0px;
+        @media (max-width: 1024px) {
+            text-align: center;
+            padding: 0px;
+        }
+        &__title {
+            margin: 0;
+        }
+        &__btn {
+            max-width: 200px;
+            padding: 20px;
+        }
+    }
+}

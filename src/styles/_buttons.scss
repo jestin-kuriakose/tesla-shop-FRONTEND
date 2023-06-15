@@ -1,11 +1,11 @@
 %btn {
-    display: inline-block;
-    padding: 8px 20px;
-    margin: 3px;
-    border: none;
-    width: 100%;
-    font-size: 18px;
-    font-weight: 300;
+  color: #FFFFFF;
+  border: none;
+  box-shadow: 0px 10px 50px rgba(75, 74, 239, 0.5);
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 18px;
+  cursor: pointer;
     
     &:hover {
       transform: scale(.98);
@@ -14,12 +14,11 @@
   
   .btn-primary {
     @extend %btn;
-    @include set-background(lighten($primary-color, 10%));
+    background-color: $p-color
   }
   
   .btn-secondary {
     @extend %btn;
-    @include set-background($secondary-color);
   }
 
   .btn-sm {

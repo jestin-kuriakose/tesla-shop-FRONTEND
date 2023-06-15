@@ -1,0 +1,61 @@
+@import "../../styles/style.scss";
+
+.ts-footer {
+    padding: 120px 50px;
+    padding-bottom: 0;
+    position:relative;
+    bottom: 0;
+    right: 0;
+    background-color: #061D49;
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    &__section1 {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 100px;
+        color: white;
+
+        @media (max-width: 1024px) {
+            flex-wrap: wrap;
+            justify-content: center;
+            text-align: center;
+        }
+
+        &__logo {
+            width: 200px;
+            height: auto;
+
+            @media (max-width: 1024px) {
+                margin: 0 auto;
+            }
+
+            &__img {
+                width: 100%;
+            }
+        }
+        &__title {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 19px;
+            color: #FFFFFF;
+            margin: 0;
+            margin-bottom: 25px;
+        }
+        &__text {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 28px;
+            color: #7884A6;
+        }
+    }
+    &__section2 {
+        color: white;
+        margin-top: 30px;
+    }
+}
