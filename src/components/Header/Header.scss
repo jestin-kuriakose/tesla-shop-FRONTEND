@@ -83,9 +83,7 @@
             text-decoration: none;
             color: $black;
         }
-        @media screen and (max-width: $xl) {
-            // flex-wrap: wrap;
-        }
+        
         @media screen and (max-width: $md) {
             display: block;
             position: absolute;
@@ -122,7 +120,15 @@
         }
         &__page {
             margin: 0 1.5rem;
-            font-size: 16px;
+            font-size: 18px;
+            &:hover {
+                color: $p-color;
+                font-weight: 600;
+            }
+            &.active {
+                border-bottom: 3px solid $p-color;
+                color: $p-color;
+            }
             @media screen and (max-width: $md) {
                 padding: 20px;
                 font-size: 24px;
@@ -134,6 +140,10 @@
         &__login {
             margin: 0 1.5rem;
             font-size: 18px;
+            &:hover {
+                color: $p-color;
+                font-weight: 600;
+            }
             @media (max-width: $md) {
                 padding: 20px;
                 font-size: 24px;

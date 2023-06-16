@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Logo from "../../assets/logo-full.png"
 import "./Header.scss"
-import { Link } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 
 const Header = () => {
 
@@ -13,22 +13,25 @@ const Header = () => {
         setHamburgerOpen(prev => !prev)
     }
 
+    const location = useLocation()
+    const activeLink = location.pathname.split('/')[1]
+
   return (
     <div className="ts-header">
         <div className="ts-header__container container">
             <div className="ts-header__logo">
-                <img src={Logo} alt="Tesla Electronics" className="ts-header__logo__img" />
+                <Link to={'/'}><img src={Logo} alt="Tesla Electronics" className="ts-header__logo__img" /></Link>
             </div>
 
             <div className={hamburgerOpen ? "ts-header__nav open" : "ts-header__nav"}>
                 <ul className="ts-header__nav__pages">
-                    <Link to={'/'}><li className="ts-header__nav__page">Home</li></Link>
-                    <Link to={'/shop'}><li className="ts-header__nav__page">Shop</li></Link>
-                    <Link to={'/repair'}><li className="ts-header__nav__page">Repair</li></Link>
-                    <Link to={'/contact'}><li className="ts-header__nav__page">Contact Us</li></Link>
+                    <Link to={'/'}><li className={`ts-header__nav__page ${activeLink=== '' && "active"}`}>Home</li></Link>
+                    <Link to={'/shop'}><li className={`ts-header__nav__page ${activeLink=== 'shop' && "active"}`}>Shop</li></Link>
+                    <Link to={'/repair'}><li className={`ts-header__nav__page ${activeLink=== 'repair' && "active"}`}>Repair</li></Link>
+                    <Link to={'/contact'}><li className={`ts-header__nav__page ${activeLink=== 'contact' && "active"}`}>Contact Us</li></Link>
                 </ul>
                 <ul className="ts-header__nav__auth">
-                    <Link to={'/login'}><li className="ts-header__nav__login">Login</li></Link>
+                    <Link to={'/login'}><li className={`ts-header__nav__login ${activeLink=== 'login' && "active"}`}>Login</li></Link>
                     <Link to={'/register'}><li><button className="ts-header__nav__register btn-primary">Sign Up</button></li></Link>
                 </ul>
             </div>
