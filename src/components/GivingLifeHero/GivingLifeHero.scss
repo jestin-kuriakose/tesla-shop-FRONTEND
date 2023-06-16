@@ -1,0 +1,66 @@
+@import '../../styles/style.scss';
+
+.ts-givingLife-hero {
+    padding: 120px 50px;
+    background-image: url('../../assets/bg2.jpg');
+    object-fit: cover;
+    background-position-x: right;
+    background-size: cover;
+    @media (max-width: 640px) {
+        padding: 60px 20px;
+    }
+    padding: 120px 50px;
+    @media (max-width: 475px) {
+        padding: 60px 0px;
+    }
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        @media (max-width: 1024px) {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+    }
+    &__left {
+        flex: 1;
+        max-width: 600px;
+        & img {
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+            object-fit: cover;
+        }
+    }
+    &__right {
+        flex: 1;
+        @media (max-width:1024px) {
+            text-align: center;
+        }
+        &__img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: $p-color;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            @media (max-width: 1024px) {
+                margin: 0 auto;
+            }
+
+        }
+        &__title {
+            color: #eef1f6 !important;
+        }
+        &__text {
+            color: #eef1f6;
+        }
+        &__btn {
+            max-width: 180px;
+            padding: 12px 22px;
+        }
+    }
+}

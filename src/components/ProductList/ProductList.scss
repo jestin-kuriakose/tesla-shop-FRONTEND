@@ -1,0 +1,64 @@
+@import '../../styles/style.scss';
+
+.productList {
+    flex: 4;
+
+    &__products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+      &__product {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 350px;
+
+        a{
+          text-decoration: none;
+          color: black;
+        }
+
+        &__img {
+          width: 250px;
+          height: 350px;
+          object-fit: contain;
+        }
+        &__title {
+          font-weight: 300;
+          font-size: 28px;
+          font-weight: 400;
+          margin: 0;
+        }
+        &__price {
+          margin: 0;
+          font-size: 32px;
+          color: $p-color;
+          font-weight: 800;
+        }
+        &__cart {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 5px;
+          padding-bottom: 48px;
+          &__qty{
+            flex: 1;
+            width: 30px;
+            height: 30px;
+            font-size: 24px;
+            border: 1px solid $p-color;
+            border-radius: 5px;
+            padding: 5px;
+
+          }
+          &__btn {
+            flex: 4;
+            cursor: pointer;
+            padding: 10px;
+            width: 200px;
+          }
+        }
+      }
+
+  }

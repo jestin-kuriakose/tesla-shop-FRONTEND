@@ -1,0 +1,63 @@
+@import '../../styles/style.scss';
+
+.shop {
+    padding: 50px;
+  
+    &__container {
+        color: black;
+        display: flex;
+        @media (max-width: 1024px) {
+            flex-direction: column;
+        }
+    }
+
+    &__filter {
+      flex: 1;
+      align-self: flex-start;
+      margin-top: 50px;
+      @media (max-width: 1024px) {
+        display: none;
+    }
+  
+      &__search{
+        padding: 15px;
+        width: 220px;
+        border: 1px solid $p-color;
+      }
+  
+      &__categoryLabel{
+        font-size: 30px;
+        color: $p-color;
+        font-weight: 300;
+  
+      }
+  
+      &__categories {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+  
+        &__cat {
+          font-size: 20px;
+          font-weight: 300;
+          cursor: pointer;
+          padding: 5px;
+
+          &:hover {
+            color: $primary-color;
+          }
+        }
+      }
+      &__priceLabel {
+        font-size: 30px;
+        color: $p-color;
+        font-weight: 300;
+      }
+      &__price {
+        &__priceRange {
+            accent-color: $p-color;
+        }
+      }
+    }
+  
+}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Logo from "../../assets/logo-full.png"
 import "./Header.scss"
+import { Link } from 'react-router-dom'
 
 const Header = () => {
 
@@ -21,14 +22,14 @@ const Header = () => {
 
             <div className={hamburgerOpen ? "ts-header__nav open" : "ts-header__nav"}>
                 <ul className="ts-header__nav__pages">
-                    <li className="ts-header__nav__page">Repair</li>
-                    <li className="ts-header__nav__page">How It Works</li>
-                    <li className="ts-header__nav__page">About Us</li>
-                    <li className="ts-header__nav__page">Contact Us</li>
+                    <Link to={'/'}><li className="ts-header__nav__page">Home</li></Link>
+                    <Link to={'/shop'}><li className="ts-header__nav__page">Shop</li></Link>
+                    <Link to={'/repair'}><li className="ts-header__nav__page">Repair</li></Link>
+                    <Link to={'/contact'}><li className="ts-header__nav__page">Contact Us</li></Link>
                 </ul>
                 <ul className="ts-header__nav__auth">
-                    <li className="ts-header__nav__login">Login</li>
-                    <li><button className="ts-header__nav__register btn-primary">Sign Up</button></li>
+                    <Link to={'/login'}><li className="ts-header__nav__login">Login</li></Link>
+                    <Link to={'/register'}><li><button className="ts-header__nav__register btn-primary">Sign Up</button></li></Link>
                 </ul>
             </div>
             <div className={hamburgerClass} onClick={handleHamburgerClick}>

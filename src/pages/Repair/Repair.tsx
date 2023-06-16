@@ -8,20 +8,19 @@ import WhyChooseUs from '../../components/WhyChooseUs/WhyChooseUs'
 import Footer from '../../components/Footer/Footer'
 import FeaturedProducts from '../../components/FeaturedProducts/FeaturedProducts'
 import AboutUsHero from '../../components/AboutUsHero/AboutUsHero'
+import GivingLifeHero from '../../components/GivingLifeHero/GivingLifeHero'
 
 const Repair = () => {
 
   return (
-    <div>
+    <>
         <Header/>
-        <Hero/>
-        <AboutUsHero/>
+        {/* <Hero/> */}
         <RepairContactHero/>
         <RepairSelect/>
         <WhyChooseUs/>
-        <FeaturedProducts/>
         <Footer/>
-    </div>
+    </>
   )
 }
 
