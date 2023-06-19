@@ -150,31 +150,7 @@ body {
 
 // LOGIN PAGE
 
-.login-form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 80vh;
-  width: 300px;
 
-  h1 {
-    color: black;
-    font-size: 50px;
-  }
-  input {
-    padding: 10px 0;
-    margin-bottom: 20px;
-    width: 100%;
-    font-size: 20px;
-    font-weight: 500;
-  }
-
-  a {
-    text-decoration: none;
-    color: $secondary-color
-  }
-}
 
 //HOME PAGE
 //HERO SECTION

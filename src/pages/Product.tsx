@@ -1,6 +1,6 @@
 import React, { useEffect, useState, FC, ReactElement } from 'react'
-import Footer from '../components/Footer'
-import Header from '../components/Header'
+import Footer from '../components/Footer/Footer'
+import Header from '../components/Header/Header'
 import iPhone from '../assets/iphone.jpg'
 import { useLocation } from 'react-router-dom'
 import {phones} from '../data.js'

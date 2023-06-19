@@ -2,6 +2,7 @@
 
 .ts-hero {
     padding: 0px 50px;
+
     @media (max-width: 475px) {
         padding: 0px;
     }
@@ -12,6 +13,7 @@
         align-items: center;
         gap: 30px;
         position: relative;
+
         @media screen and (max-width: $xl) {
             flex-direction: column;
         }

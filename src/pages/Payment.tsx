@@ -3,8 +3,8 @@ import { loadStripe } from "@stripe/stripe-js"
 import { FC, useContext, useEffect, useState } from "react"
 import axios from "../api/axios"
 import CheckoutForm from "../components/CheckoutForm"
-import Header from "../components/Header"
-import Footer from "../components/Footer"
+import Header from "../components/Header/Header"
+import Footer from "../components/Footer/Footer"
 import CartContext from "../context/CartContext"
 
 const Payment:FC = () => {

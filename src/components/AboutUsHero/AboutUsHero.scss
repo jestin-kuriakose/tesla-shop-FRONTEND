@@ -31,6 +31,7 @@
                 object-fit: cover;
                 z-index: 2;
                 position: relative;
+                box-shadow: 0px 10px 50px rgba(75, 74, 239, 0.5);
             }
             &__bg {
                 position: absolute;
@@ -40,6 +41,7 @@
                 height: 100%;
                 background-color: $p-color;
                 z-index: 1;
+                box-shadow: 0px 10px 50px rgba(75, 74, 239, 0.5);
             }
         }
 

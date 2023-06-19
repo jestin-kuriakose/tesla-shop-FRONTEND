@@ -1,0 +1,36 @@
+@import "../../styles/style.scss";
+
+.login {
+    &__form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 60vh;
+        // width: 300px;
+      
+        &__heading {
+          color: black;
+          font-size: 50px;
+        }
+        &__email, &__password {
+          padding: 10px 10px;
+          margin-bottom: 20px;
+          width: 100%;
+          max-width: 300px;
+          font-size: 18px;
+          font-weight: 500;
+          border-radius: 5px;
+          border: 1px solid black;
+        }
+
+      
+        &__register {
+          text-decoration: none;
+          margin-top: 10px;
+          &:hover {
+            color: $p-color;
+          }
+        }
+      }
+}
