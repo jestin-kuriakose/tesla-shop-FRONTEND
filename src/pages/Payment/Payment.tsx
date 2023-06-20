@@ -1,13 +1,14 @@
 import { Elements } from "@stripe/react-stripe-js"
 import { loadStripe } from "@stripe/stripe-js"
 import { FC, useContext, useEffect, useState } from "react"
-import axios from "../api/axios"
-import CheckoutForm from "../components/CheckoutForm"
-import Header from "../components/Header/Header"
-import Footer from "../components/Footer/Footer"
-import CartContext from "../context/CartContext"
+import axios from "../../api/axios"
+import CheckoutForm from "../../components/CheckoutForm/CheckoutForm"
+import Header from "../../components/Header/Header"
+import Footer from "../../components/Footer/Footer"
+import CartContext from "../../context/CartContext"
+import './Payment.scss'
 
-const Payment:FC = () => {
+const Payment = () => {
     const [stripePromise, setStripePromise] = useState<string | null>(null)
     const [clientSecret, setClientSecret] = useState<string | null>("")
     const { cart, setCart } = useContext(CartContext)

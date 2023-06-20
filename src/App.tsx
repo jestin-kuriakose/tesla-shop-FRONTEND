@@ -8,11 +8,10 @@ import Home from './pages/Home/Home'
 import Shop from './pages/Shop/Shop'
 import Contact from "./pages/Contact/Contact";
 import Product from "./pages/Product/Product";
-import ProductList from "./components/ProductList";
 import React from "react";
-import CartPage from "./pages/CartPage";
-import Payment from "./pages/Payment";
-import Completion from "./pages/Completion";
+import CartPage from "./pages/CartPage/CartPage";
+import Payment from "./pages/Payment/Payment";
+import Completion from "./pages/Completion/Completion";
 import Repair from "./pages/Repair/Repair";
 import Register from "./pages/Register/Register";
 

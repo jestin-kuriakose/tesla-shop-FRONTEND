@@ -2,10 +2,24 @@ import React, { useState } from 'react'
 import Logo from "../../assets/logo-full.png"
 import "./Header.scss"
 import { Link, NavLink, useLocation } from 'react-router-dom'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import { IconButton } from '@mui/material';
+import Badge, { BadgeProps } from '@mui/material/Badge';
+import { styled } from '@mui/material/styles';
+
+const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
+    '& .MuiBadge-badge': {
+      right: -3,
+      top: 13,
+      border: `2px solid ${theme.palette.background.paper}`,
+      padding: '0 4px',
+    },
+  }));
 
 const Header = () => {
 
-    const [hamburgerOpen, setHamburgerOpen] = useState(false)
+    const [hamburgerOpen, setHamburgerOpen] = useState<boolean>(false)
 
     const hamburgerClass = hamburgerOpen ? "ts-header__hamburger-menu open" : "ts-header__hamburger-menu"
 
@@ -35,6 +49,14 @@ const Header = () => {
                     <Link to={'/register'}><li><button className="ts-header__nav__register btn-primary">Sign Up</button></li></Link>
                 </ul>
             </div>
+            <Link to={'/cart'} className="ts-header__cartIcon">
+                <IconButton aria-label="cart">
+                    <StyledBadge badgeContent={4} color="primary">
+                        <ShoppingCartIcon />
+                    </StyledBadge>
+                </IconButton>
+            </Link>
+
             <div className={hamburgerClass} onClick={handleHamburgerClick}>
                 <span className="line1"></span>
                 <span className="line2"></span>
