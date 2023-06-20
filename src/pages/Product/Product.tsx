@@ -1,10 +1,11 @@
 import React, { useEffect, useState, FC, ReactElement } from 'react'
 import Footer from '../../components/Footer/Footer'
 import Header from '../../components/Header/Header'
-import iPhone from '../assets/iphone.jpg'
+import iPhone from '../../assets/iphone.jpg'
 import { useLocation } from 'react-router-dom'
 import {phones} from '../data.js'
 import axios from 'axios'
+import './Product.scss'
 
 const conditionDescription = 
     <div>
@@ -49,42 +50,51 @@ const Product:FC = ():ReactElement => {
     <>
         <Header/>
             <div className="single-product">
-                <div className="single-product_container">
-                    <div className="single-product_image">
+                <div className="single-product__container container">
+                    <div className="single-product__image">
                         <img src={iPhone} alt="" />
                     </div>
-                    <div className="single-product_content">
-                        <h3 className='single-product_content_title'>{phoneData?.title}</h3>
-                        <p className='single-product_content_desc'>{conditionDescription}</p>
+                    <div className="single-product__content">
+                        <h3 className='single-product__content__title title-primary'>{phoneData?.title}</h3>
+                        <div className='single-product__content__desc subtitle-primary'>
+                            <p><strong>Like New:</strong>
+                                 These devices look like and function like a new phone with no scratches or blemishes!</p>
+                            <p><strong>Great:</strong>
+                                 These devices will be free of visible dents, chips and scratches!</p>
+                            <p><strong>Very Good:</strong>
+                                 These devices may have light scuffs or subtle scratches. They are available at fantastic value!</p>
+                            <p><strong>Good:</strong>
+                                 These devices typically have visible scuffs, hairline scratches, or other minor imperfections.</p>
+                        </div>
 
-                        <div className="single-product_content_storage">
+                        <div className="single-product__content__storage">
                             <label htmlFor="">Storage: </label>
                             {phoneData?.storage.map((s) => (
-                                <button className="single-product_content_storage_btn">{s}</button>
+                                <button className="single-product__content__storage__btn btn-primary">{s}</button>
                             ))}
                         </div>
-                        <div className="single-product_content_color">
+                        <div className="single-product__content__color">
                             <label htmlFor="">Color: </label>
                             {phoneData?.color.map((s) => (
-                                <button className="single-product_content_color_btn">{s}</button>
+                                <button className="single-product__content__color__btn btn-primary">{s}</button>
                             ))}
                         </div>
-                        <div className="single-product_content_condition">
+                        <div className="single-product__content__condition">
                             <label htmlFor="">Condition: </label>
                             {phoneData?.condition.map((s) => (
-                                <button className="single-product_content_condition_btn">{s}</button>
+                                <button className="single-product__content__condition__btn btn-primary">{s}</button>
                             ))}
                         </div>
-                        <h3 className='single-product_content_price'>$ {phoneData?.price}</h3>
-                        <div className="single-product_content_cart">
-                            <button className='btn-sm'>-</button>
-                            <input defaultValue={0} className='quantity' type="number" />
-                            <button className='btn-sm'>+</button>
-                            <button className='btn-primary cart-btn'>Add to cart</button>
+                        <h3 className='single-product__content__price'>$ {phoneData?.price}</h3>
+                        <div className="single-product__content__cart">
+                            <button className='single-product__content__cart__removebtn btn-primary'>-</button>
+                            <input defaultValue={0} className='single-product__content__cart__quantity' type="number" />
+                            <button className='single-product__content__cart__addbtn btn-primary'>+</button>
+                            <button className='single-product__content__cart__addtocartbtn btn-primary'>Add to cart</button>
                         </div>
                     </div>
                 </div>
-                <div className="single-product_description">
+                <div className="single-product__description">
 
                 </div>
             </div>

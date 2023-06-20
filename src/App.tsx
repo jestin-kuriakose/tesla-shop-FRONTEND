@@ -7,7 +7,7 @@ import Login from './pages/Login/Login'
 import Home from './pages/Home/Home'
 import Shop from './pages/Shop/Shop'
 import Contact from "./pages/Contact/Contact";
-import Product from "./pages/Product";
+import Product from "./pages/Product/Product";
 import ProductList from "./components/ProductList";
 import React from "react";
 import CartPage from "./pages/CartPage";
