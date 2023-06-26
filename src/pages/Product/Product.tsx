@@ -4,8 +4,8 @@ import Header from '../../components/Header/Header'
 import iPhone from '../../assets/iphone.jpg'
 import { useLocation } from 'react-router-dom'
 import {phones} from '../data.js'
-import axios from 'axios'
 import './Product.scss'
+import axios from '../../api/axios'
 
 const conditionDescription = 
     <div>
@@ -36,7 +36,7 @@ const Product:FC = ():ReactElement => {
     useEffect(() => {
         const fetchPhoneData = async() => {
             try {
-                const response = await axios.get(`http://localhost:3000/api/v1/products/${id}`)
+                const response = await axios.get(`/api/v1/products/${id}`)
                 setPhoneData(response.data)
                 console.log(response.data)
             } catch(err) {

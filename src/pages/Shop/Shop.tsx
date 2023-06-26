@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 import ProductList from '../../components/ProductList/ProductList'
-import axios from 'axios'
 import './Shop.scss'
+import axios from '../../api/axios'
 
 interface Phone {
     _id: number,
@@ -26,7 +26,7 @@ const Shop = () => {
     useEffect(() => {
         const fetchPhones = async() => {
             try {
-                const response = await axios.get('http://localhost:3000/api/v1/products')
+                const response = await axios.get('/api/v1/products')
                 setPhones(response.data)
             } catch(err) {
                 console.log(err)

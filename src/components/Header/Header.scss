@@ -2,6 +2,7 @@
 
 .ts-header {
     padding: 5px 50px;
+    overflow: hidden;
     @media (max-width: 640px) {
         padding: 10px 20px;
     }
@@ -13,6 +14,18 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        @media (max-width: 1325px) {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        @media (max-width: 768px) {
+            justify-content: space-between;
+        }
+
+        .open {
+            overflow-y: hidden;
+        }
     }
     &__logo{
         width: 200px;
@@ -23,53 +36,96 @@
             object-fit: cover;
         }
     }
-    &__cartIcon {
+    &__navend {
+        display: flex;
+        gap: 15px;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            position: absolute;
+            display: block;
+            transition: all 0.3s ease-in-out;
+            top: -200%;
+            right: 0;
+            height: 100vh;
+            width: 100%;
+            background-color: transparent;
+            z-index: 100;
+            &.open {
+                top: 75%;
+                transition: all 0.3s ease-in-out;
+                z-index: 100;
+            }
+        }
+
+    }
+    &__cartIcon, &__quote {
         color: black;
-        svg {
-            width: 30px;
-            height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 18px;
+        &:hover {
+            color: $p-color;
+            font-weight: 600;
+        }
+        @media (max-width: 768px) {
+            font-size: 24px;
+        }
+    }
+    &__cartIcon {
+        @media (max-width: 1325px) {
+            margin-left: 10px;
         }
     }
     &__hamburger-menu {
         display: none;
         cursor: pointer;
+        position: relative;
+        width: 51px;
+        height: 51px;
+        transition: transform 0.3s ease-in-out;
+
+        span {
+            display: block;
+            position: absolute;
+            width: 51px;
+            height: 2px;
+            background-color: $black;
+            transition: transform 0.3s ease-in-out;
+        }
+        .line1{
+            top: 25%;
+            left: 0;
+        }
+        .line2 {
+            top: 50%;
+            left: 0;
+        }
+        .line3 {
+            top: 75%;
+            left: 0;
+        }
+        &.open .line1 {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+        &.open .line2 {
+            opacity: 0;
+        }
+        &.open .line3 {
+            transform: rotate(-45deg) translate(10px, -10px);
+        }
+
+        // @media (max-width: 1370px) {
+        //     display: block;
+        // }
 
         @media (max-width: 768px) {
             display: block;
-            position: relative;
-            width: 51px;
-            height: 51px;
-            transition: transform 0.3s ease-in-out;
 
-            span {
-                display: block;
-                position: absolute;
-                width: 51px;
-                height: 2px;
-                background-color: $black;
-                transition: transform 0.3s ease-in-out;
-            }
-            .line1{
-                top: 25%;
-                left: 0;
-            }
-            .line2 {
-                top: 50%;
-                left: 0;
-            }
-            .line3 {
-                top: 75%;
-                left: 0;
-            }
-            &.open .line1 {
-                transform: rotate(45deg) translate(8px, 8px);
-            }
-            &.open .line2 {
-                opacity: 0;
-            }
-            &.open .line3 {
-                transform: rotate(-45deg) translate(10px, -10px);
-            }
+
+
         }
     }
     &__nav {
@@ -88,24 +144,24 @@
         @media (max-width: 768px) {
             display: block;
             position: absolute;
-            transition: all 0.3s ease-in;
-            top: -1000%;
+            transition: all 0.3s ease-in-out;
+            top: -200%;
             right: 0;
             height: 100vh;
             width: 100%;
             background-color: #f4f4f4;
             z-index: 100;
-            .open {
+            &.open {
                 display: block;
                 position: absolute;
                 background-color: #f4f4f4;
                 height: 100vh;
                 width: 100%;
-                transition: all 0.3s ease-in;
+                transition: all 0.3s ease-in-out;
                 top: 10%;
                 right: 0;
                 overflow-y: hidden;
-                z-index: 100;
+                z-index: 99;
             }
         }
 
@@ -168,10 +224,15 @@
             display: flex;
             list-style: none;
             align-items: center;
+
             @media screen and (max-width: $md) {
                 flex-direction: column;
                 padding: 0px;
             }
+        }
+        &__quote {
+            color: black;
+            background-color: #040404;
         }
     }
 }

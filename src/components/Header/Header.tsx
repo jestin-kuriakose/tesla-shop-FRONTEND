@@ -7,6 +7,7 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { IconButton } from '@mui/material';
 import Badge, { BadgeProps } from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
+import RequestQuoteIcon from '@mui/icons-material/RequestQuote';
 
 const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
     '& .MuiBadge-badge': {
@@ -25,6 +26,7 @@ const Header = () => {
 
     const handleHamburgerClick = () => {
         setHamburgerOpen(prev => !prev)
+        document.body.classList.toggle("noscroll")
     }
 
     const location = useLocation()
@@ -49,13 +51,21 @@ const Header = () => {
                     <Link to={'/register'}><li><button className="ts-header__nav__register btn-primary">Sign Up</button></li></Link>
                 </ul>
             </div>
-            <Link to={'/cart'} className="ts-header__cartIcon">
-                <IconButton aria-label="cart">
-                    <StyledBadge badgeContent={4} color="primary">
-                        <ShoppingCartIcon />
-                    </StyledBadge>
-                </IconButton>
-            </Link>
+
+            <div className={hamburgerOpen ? 'ts-header__navend open' : 'ts-header__navend'}>
+                <Link to={'/quote'} className='ts-header__quote'>
+                    <p>Request a Quote</p><RequestQuoteIcon fontSize='large' />
+                </Link>
+
+                <Link to={'/cart'} className="ts-header__cartIcon">
+                    <p>Cart</p>
+                    <IconButton aria-label="cart">
+                        <StyledBadge badgeContent={4} color="primary">
+                            <ShoppingCartIcon fontSize='large' /> 
+                        </StyledBadge>
+                    </IconButton>
+                </Link>
+            </div>
 
             <div className={hamburgerClass} onClick={handleHamburgerClick}>
                 <span className="line1"></span>

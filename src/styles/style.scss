@@ -1,4 +1,10 @@
 @import 'config';
+
+
+  body.noscroll {
+    overflow-y: hidden;
+  }
+
   
   
   // @media (prefers-color-scheme: light) {
@@ -15,7 +21,7 @@
   // }
 
 
-// Cart Page
+
 
 
 //Divider
