@@ -11,7 +11,7 @@ workflows:
   build:
     jobs:
       - build:
-          token_name: 86831147a76a1f1cba49ddab40afa0b5a0b25934
+          CIRCLE_TOKEN: 86831147a76a1f1cba49ddab40afa0b5a0b25934
           post-steps:
             - jira/notify
 
