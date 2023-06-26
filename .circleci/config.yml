@@ -7,11 +7,11 @@ jobs:
 orbs:
   jira: circleci/jira@1.3.1
 version: 2.1
+CIRCLE_TOKEN: 86831147a76a1f1cba49ddab40afa0b5a0b25934
 workflows:
   build:
     jobs:
       - build:
-          CIRCLE_TOKEN: 86831147a76a1f1cba49ddab40afa0b5a0b25934
           post-steps:
             - jira/notify
 
