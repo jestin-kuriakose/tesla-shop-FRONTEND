@@ -72,6 +72,10 @@
         }
         @media (max-width: 768px) {
             font-size: 24px;
+            padding: 10px;
+            p {
+                margin: 0;
+            }
         }
     }
     &__cartIcon {
@@ -158,7 +162,7 @@
                 height: 100vh;
                 width: 100%;
                 transition: all 0.3s ease-in-out;
-                top: 10%;
+                top: 12%;
                 right: 0;
                 overflow-y: hidden;
                 z-index: 99;
@@ -172,7 +176,7 @@
             align-items: center;
             @media screen and (max-width: $md) {
                 flex-direction: column;
-                padding: 20px 40px;
+                padding: 10px 40px;
             }
         }
         &__page {
@@ -187,7 +191,7 @@
                 color: $p-color;
             }
             @media screen and (max-width: $md) {
-                padding: 20px;
+                padding: 10px;
                 font-size: 24px;
             }
             @media screen and (max-width: $xl) {
@@ -202,7 +206,7 @@
                 font-weight: 600;
             }
             @media (max-width: $md) {
-                padding: 20px;
+                padding: 10px;
                 font-size: 24px;
             }
         }

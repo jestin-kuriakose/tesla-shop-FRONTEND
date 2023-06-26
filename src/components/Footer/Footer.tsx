@@ -6,6 +6,8 @@ import GoogleIcon from '@mui/icons-material/Google';
 import "./Footer.scss"
 
 const Footer = () => {
+    const date = new Date()
+    const year = date.getFullYear()
   return (
     <footer className="ts-footer">
         <div className="ts-footer__container container">
@@ -43,7 +45,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="ts-footer__section2">
-                <p className="ts-footer__section2__text">&#169; 2023 Phone Repair All right reserved.</p>
+                <p className="ts-footer__section2__text">&#169; {year} Tesla Electronics Inc. All right reserved.</p>
             </div>
         </div>
     </footer>

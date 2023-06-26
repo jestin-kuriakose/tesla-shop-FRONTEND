@@ -12,60 +12,48 @@ const WhyChooseUs = () => {
     <div className="ts-choose-us">
         <div className="ts-choose-us__container container">
             <h1 className="ts-choose-us__title title-primary">Why Choose Us</h1>
-            <p className="ts-choose-us__text subtitle-primary">There are many variations of passages of Lorem Ipsum available, but the majority have.</p>
+            <p className="ts-choose-us__text subtitle-primary">There are many reasons why you should choose Tesla Electronics.</p>
             <div className="ts-choose-us__lists">
                 <div className="ts-choose-us__list">
                     <img className='ts-choose-us__list__img' src={PricingSVG} alt="" />
-                    <h3 className="ts-choose-us__list__title">Price Promise</h3>
+                    <h3 className="ts-choose-us__list__title">Limited lifetime guarantee</h3>
                     <p className="ts-choose-us__list__text">
-                        We provide you with unique products that make your life easier! 
-                        These products are created to solve your pain points. Our amazing 
-                        products offer you quality and creative solutions for your WordPress website.
+                        Most repairs are backed by a lifetime warranty on all parts and labour.
                     </p>
                 </div>
                 <div className="ts-choose-us__list">
                     <img className='ts-choose-us__list__img' src={RepairingSVG} alt="" />
-                    <h3 className="ts-choose-us__list__title">Express Repairs</h3>
+                    <h3 className="ts-choose-us__list__title">Premium quality parts</h3>
                     <p className="ts-choose-us__list__text">
-                        We provide you with unique products that make your life easier! 
-                        These products are created to solve your pain points. Our amazing products 
-                        offer you quality and creative solutions for your WordPress website.
+                        Our technicians are certified to repair your devices by the world’s largest manufacturers using state of the art tools and diagnostics.
                     </p>
                 </div>
                 <div className="ts-choose-us__list">
                     <img className='ts-choose-us__list__img' src={GearSVG} alt="" />
-                    <h3 className="ts-choose-us__list__title">Premium Parts</h3>
+                    <h3 className="ts-choose-us__list__title">Commitment to Data Security</h3>
                     <p className="ts-choose-us__list__text">
-                        We provide you with unique products that make your life easier! 
-                        These products are created to solve your pain points. Our amazing 
-                        products offer you quality and creative solutions for your WordPress website.
+                        We have policies and processes in place to ensure your personal data is safe. All techs are bonded and trained on data and privacy protection.
                     </p>
                 </div>
                 <div className="ts-choose-us__list">
                     <img className='ts-choose-us__list__img' src={HomeSVG} alt="" />
-                    <h3 className="ts-choose-us__list__title">Home Service</h3>
+                    <h3 className="ts-choose-us__list__title">Free diagnosis and quote</h3>
                     <p className="ts-choose-us__list__text">
-                        We provide you with unique products that make your life easier! 
-                        These products are created to solve your pain points. Our amazing 
-                        products offer you quality and creative solutions for your WordPress website.
+                        Immediate quote and diagnosis in case of damage or breakdown.
                     </p>
                 </div>
                 <div className="ts-choose-us__list">
                     <img className='ts-choose-us__list__img' src={UserSVG} alt="" />
-                    <h3 className="ts-choose-us__list__title">Expert Technicians</h3>
+                    <h3 className="ts-choose-us__list__title">Expertise</h3>
                     <p className="ts-choose-us__list__text">
-                        We provide you with unique products that make your life easier! 
-                        These products are created to solve your pain points. Our amazing 
-                        products offer you quality and creative solutions for your WordPress website.
+                        From providing 64-point inspections to protecting your privacy, you can trust our expert technicians.
                     </p>
                 </div>
                 <div className="ts-choose-us__list">
                     <img className='ts-choose-us__list__img' src={GroupSVG} alt="" />
                     <h3 className="ts-choose-us__list__title">Great Support</h3>
                     <p className="ts-choose-us__list__text">
-                        We provide you with unique products that make your life easier! 
-                        These products are created to solve your pain points. Our amazing 
-                        products offer you quality and creative solutions for your WordPress website.
+                        We provide you with great support after the device has been repaired.
                     </p>
                 </div>
                 
