@@ -1,46 +1,27 @@
 version: 2.1
 
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - run: echo "Hello, CircleCI!"
+
 orbs:
   jira: circleci/jira@1.3.1
 
 workflows:
-  version: 2
-  build_and_notify:
-    jobs:
-      - build
-      - notify_jira:
-          requires:
-            - build
-
-jobs:
+  version: 2.1
   build:
-    docker:
-      - image: circleci/node:14
-
-    steps:
-      - checkout
-
-      # Add your build steps here
-      # ...
-
-  notify_jira:
-    docker:
-      - image: cimg/base:2022.01
-
-    steps:
-      - jira/notify:
-          project_key: YOUR_JIRA_PROJECT_KEY
-          issue_type: Task
-          summary: CircleCI Build Status
-          description: >
-            CircleCI Build has completed for $CIRCLE_PROJECT_REPONAME.
-            Status: $CIRCLE_JOB
-            Commit: $CIRCLE_SHA1
-            Build URL: $CIRCLE_BUILD_URL
-
-          # Additional options:
-          # priority: High
-          # labels: "circleci, build"
-          # assignee: jira_username
-
-
+    jobs:
+      - build:
+          post-steps:
+            - jira/notify:
+                project_key: TS
+                issue_type: Task
+                summary: CircleCI Build Status
+                description: >
+                  CircleCI Build has completed for $CIRCLE_PROJECT_REPONAME.
+                  Status: $CIRCLE_JOB
+                  Commit: $CIRCLE_SHA1
+                  Build URL: $CIRCLE_BUILD_URL
